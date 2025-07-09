@@ -3,10 +3,12 @@ package org.firstinspires.ftc.teamcode.summerschool;
 import com.arcrobotics.ftclib.hardware.motors.Motor;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
+@TeleOp(name = "summerschool")
 public class ServosAndMotors extends OpMode {
 
     private DcMotor motor = null;
@@ -23,12 +25,7 @@ public class ServosAndMotors extends OpMode {
 
     @Override
     public void loop() {
-        if (Math.abs(gamepad1.left_stick_x) > 0.1) {
-            motor.setPower(gamepad1.left_stick_x);
-        }
-        else {
-            motor.setPower(0.0f);
-        }
+        motor.setPower(gamepad1.left_stick_y);
 
         // You can see that the crServo is run exactly like a motor
         if (Math.abs(gamepad1.right_stick_x) > 0.1) {
